@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color="light">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>RUNNERz - ADD TASK</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-input label="Task" type="text" [(ngModel)]="post.title" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Details" type="text" [(ngModel)]="post.details" required></ion-input>
+  </ion-item>
+
+  <ion-button class="ion-padding" color="primary" expand="full" (click)="createPost(post)">
+    ADD
+  </ion-button>
+
+
+  
+
+
+</ion-content>
+

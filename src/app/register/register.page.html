@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>RUNNERz - REGISTER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+    <ion-item>
+    
+      <img src="assets/running2.jpg" alt="My Transparent Image">
+
+    </ion-item>
+
+    <ion-item>
+      <ion-input label='Email 'type="email" [(ngModel)]="user.email" required></ion-input>
+    </ion-item>
+  
+    <ion-item>
+     
+      <ion-input label='Password'type="password" [(ngModel)]="user.password" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+     
+      <ion-input label='Retype password' type="password" required></ion-input>
+
+    </ion-item>
+  
+    <ion-button class="ion-padding" color="primary" expand="full" (click)="register(user)">
+      Register
+    </ion-button>
+
+    <ion-button class="ion-padding" color="light" expand="full" (click)="goBack()">
+      Back
+    </ion-button>
+
+
+
+
+</ion-content>
+

@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color="light">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>RUNNERz - HEART RATE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+    <h1 postion="center">Measuring your heart rate</h1>
+    <div class="heart-icon">
+      <svg
+      width="50"
+      height="50"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z"
+        fill="red"
+        stroke="#fff"
+        stroke-width="2"
+      />
+    </svg>
+    </div>
+    
+    <div class="heart-rate-display">
+      <p *ngIf="heartRate !== null">{{ heartRate }} bpm</p>
+      <p *ngIf="heartRate === null">...</p>
+    </div>
+    <ion-button class="ion-padding" color="light" expand="full" (click)="measureAgain()">
+      Measure Again
+    </ion-button>
+    <ion-button class="ion-padding" color="tertiary" expand="full" (click)="saveHeartRate()">
+      Save
+    </ion-button>
+
+    <ion-button class="ion-padding"  color="medium" expand="full" (click)="showHeartRates()">Show History</ion-button>
+
+    <ion-list *ngIf="heartRates.length > 0">
+      <ion-item *ngFor="let rate of heartRates">
+        <ion-label>{{ rate.value }} bpm</ion-label>
+        <ion-label>{{ rate.timestamp | date: 'medium' }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+
+
+
+</ion-content>

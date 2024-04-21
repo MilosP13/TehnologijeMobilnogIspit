@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color="light">
+    <ion-title>RUNNERz - EDIT TASK</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-input label="Task" type="text" [(ngModel)]="post.title" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Details" type="text" [(ngModel)]="post.details" required></ion-input>
+  </ion-item>
+
+  <ion-button class="ion-padding" color="primary" expand="full" (click)="updatePost(post)">
+    EDIT
+  </ion-button>
+
+
+  
+
+
+</ion-content>
+
+

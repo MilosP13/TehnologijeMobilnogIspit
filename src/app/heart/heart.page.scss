@@ -1,0 +1,17 @@
+.heart-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+
+  .heart-rate-display {
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid white; /* Add a white border */
+    padding: 10px; /* Add padding for better appearance */
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+  }
+  
+  .heart-rate-display p {
+    font-size: 24px;
+  }

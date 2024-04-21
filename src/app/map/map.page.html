@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>
+      RUNNERz - MAP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div #map id="map" style="height: 100%;width:100%"></div>
+</ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>{{ routeInfo }}</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
