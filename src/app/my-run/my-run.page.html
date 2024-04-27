@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color="light">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title>RUNNERz - MY RUNS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    
+    <img src="assets/running2.jpg" alt="My Transparent Image">
+
+  </ion-item>
+  
+  <ion-list *ngIf="routeS.length > 0">
+    <ion-item *ngFor="let route of routeS">
+      <ion-label>{{ route.value }}</ion-label>
+      <ion-label>{{ route.timestamp | date: 'medium' }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button class="ion-padding" color="tertiary" expand="full"  [routerLink]="['/map']">
+    Run
+  </ion-button>
+
+</ion-content>

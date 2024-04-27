@@ -19,7 +19,17 @@
 
 <ion-footer [translucent]="true">
   <ion-toolbar color="light">
-    <ion-title>{{ routeInfo }}</ion-title>
+
+    <ion-title><p title="center" style="color:white;">{{ routeInfo }}</p></ion-title>
+    
+    <ion-button color="success" slot="start" (click)="saveRoute()">
+      Save Route
+    </ion-button>
+
+    <ion-button color="primary" slot="end" [routerLink]="['/my-run']">
+      My Runs
+    </ion-button>
+    
   </ion-toolbar>
 </ion-footer>
 

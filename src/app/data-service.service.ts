@@ -21,4 +21,17 @@ export class DataServiceService {
     return this.firestore.collection('heartRates').valueChanges();
   }
 
+
+  saveRoute(route: String): Promise<any> {
+    return this.firestore.collection('Routes').add({
+      value: route,
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  
+   getAllRoutes(): Observable<any[]> {
+    return this.firestore.collection('Routes').valueChanges();
+  }
+
 }

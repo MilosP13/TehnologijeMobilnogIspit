@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'map',
     loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   },
+  {
+    path: 'my-run',
+    loadChildren: () => import('./my-run/my-run.module').then( m => m.MyRunPageModule)
+  },
 
   
 

@@ -1,7 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-map',
@@ -20,7 +22,15 @@ export class MapPage {
     popupAnchor: [0, -32],
   });
 
-  constructor(private navCtrl: NavController) {}
+  route: String | null = null;
+  routeS: any[] = []; 
+  isSaved: boolean = false;
+
+  constructor(private navCtrl: NavController,
+    private toastCtrl: ToastController,
+    private loadingCtrl: LoadingController,
+    private firestore: AngularFirestore,
+    private firebaseService: DataServiceService) {}
 
   ionViewDidEnter() {
     this.initMap();
@@ -164,4 +174,28 @@ export class MapPage {
   goBack() {
     this.navCtrl.back(); // Navigate back to the previous page
   }
+
+  saveRoute() {
+    if (this.routeInfo !== null) {
+      this.firebaseService.saveRoute(this.routeInfo)
+        .then(() => {
+          console.log('Route saved successfully');
+          this.showToast("Route saved successfully");
+          // Optionally, you can add a toast or notification to indicate successful save
+        })
+        .catch((error) => {
+          console.error('Error saving route: ', error);
+          this.showToast('Error saving route: ');
+          // Optionally, you can add a toast or notification to indicate error
+        });
+    }
+  }
+
+  showToast(message: string){
+    this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    }).then(toastData => toastData.present())
+  }
+
 }

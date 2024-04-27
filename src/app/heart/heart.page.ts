@@ -27,9 +27,9 @@ export class HeartPage implements OnInit {
   measureHeartRate() {
     
     setTimeout(() => {
-      // Generate a random fake heart rate value between 60 and 100 bpm
+      // 
       this.heartRate = Math.floor(Math.random() * (100 - 60 + 1)) + 60;
-    }, 5000); // Display after 5 seconds
+    }, 5000); 
   }
 
   measureAgain() {
